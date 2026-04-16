@@ -3,15 +3,15 @@
   become: yes
   tasks: 
      - name: install rabbitmq server
-      ansible.builtin.package:
+       ansible.builtin.package:
         name: rabbitmq-server
         state: present
     
-    -name: start and enable rabbitmq service
-    ansible.builtin.service:
-      name: rabbitmq 
-      state: started
-      enabled: yes
+    - name: start and enable rabbitmq service
+      ansible.builtin.service:
+        name: rabbitmq 
+        state: started
+        enabled: yes
 
     - name: create and provide permissions to user
       community.rabbitmq.rabbitmq_user:
