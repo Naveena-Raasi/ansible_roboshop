@@ -3,17 +3,17 @@
   become: yes
   tasks: 
     - name: install python3 
-      ansible.builtin.package: 
+      ansible.builtin.dnf: 
         name: python3
         start: present
 
     - name: install gcc
-      ansible.builtin.package: 
+      ansible.builtin.dnf: 
         name: gcc
         state: present
 
     - name: install
-      ansible.builtin.package:
+      ansible.builtin.dnf:
         name: python3-devel
         state: present
 
