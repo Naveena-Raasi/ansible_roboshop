@@ -10,7 +10,7 @@
       - python3
       - gcc
       - python3-devel
-      
+
     - name: create user
       ansible.builtin.user:
         name: roboshop
@@ -47,9 +47,12 @@
         dest: /app
         remote_src: yes
 
-    - name: Install python package
+    - name: install dependencies
       ansible.builtin.pip:
-        name: pip3
+        requirements: requirements.txt
+        executable: pip3.9
+      args:
+        chdir: /app
 
     - name: copy payment service
       ansible.builtin.copy:
